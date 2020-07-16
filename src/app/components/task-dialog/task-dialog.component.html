@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>
+    {{ data.name }}
+    <!-- {{ data.id }}
+    {{ data.status }}
+    {{ data.priority }} -->
+</h2>
+
+<mat-dialog-content class="priority">
+    Priorytet:
+    <mat-radio-group>
+        <mat-radio-button value="low"
+            (click)="changePriority('low')"  
+            [checked]="data.priority == 'low'">niski
+        </mat-radio-button>
+        <mat-radio-button value="medium"
+            (click)="changePriority('medium')"  
+            [checked]="data.priority == 'medium'">średni
+        </mat-radio-button>
+        <mat-radio-button value="heigh"
+            (click)="changePriority('heigh')"  
+            [checked]="data.priority == 'heigh'">wysoki
+        </mat-radio-button>
+    </mat-radio-group>
+</mat-dialog-content>
+
+<mat-dialog-content class="status">
+    <mat-form-field>
+        <mat-label>Status:</mat-label>
+        <mat-select matNativeControl [(ngModel)]="status">
+            <mat-option 
+                *ngFor="let stat of stats" 
+                [value]="stat" 
+                (click)="statusChanger(stat)">
+                {{ stat }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-content class="term">
+    <mat-form-field>
+        <mat-label>Termin wykonania</mat-label>
+        <input matInput 
+        (dateChange)="changeDate($event)" 
+        [matDatepicker]="picker" 
+        [(ngModel)]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <button mat-button *ngIf="date" matSuffix mat-icon-button aria-label="Clear" (click)="clearDate()" (click)="date=''"><mat-icon>close</mat-icon></button>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-content class="decription-input">
+    <mat-form-field class="description">
+        <mat-label>Dodaj opis</mat-label>
+        <textarea matInput (change)="changeNote($event)" [(ngModel)]="data.description"></textarea>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="ok()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+task-list {
+    position: relative;
+    width:100%;
+    padding: 20px 10%;
+}
+
+sidebar-menu {
+    width: auto;
+}

@@ -1,0 +1,64 @@
+<div class="task-list-header-container">
+  <mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+  <a class="task-list-header">Zadania</a>
+</div>
+
+<mat-form-field class="task-input"  appearance="outline" floatLabel="never" >
+  <mat-label style="color: white">+ Dodaj zadanie</mat-label>
+  <input matInput type="text" [(ngModel)]="taskName" (keyup.enter)="addTask()">
+</mat-form-field>
+
+<task-item 
+  *ngFor="let task of tasksFilter()" 
+  [task]="task"
+  (checkedItem)="doneEdit($event)"
+  (doubleClickedItem)="editName($event)"
+  (blurredItem)="doneEdit($event)"
+  (enteredItem)="doneEdit($event)"
+  (cancelledItem)="cancelEdit($event)"
+  (deletedItem)="deleteTask($event)"
+  >
+</task-item>
+
+<div class="extra-container">
+  <div><label><mat-checkbox type="checkbox" (change)="checkAllTasks()"> Zaznacz wszystkie</mat-checkbox></label></div>
+  <div>{{ remaining() }} zadania pozostały</div>
+</div>
+  
+<div class="extra-container">
+  <div>
+    <button mat-button 
+      [ngClass]="{'active': filter == 'all'}" 
+      (click)="filter='all'">Wszystkie
+    </button>
+
+    <button mat-stroked-button 
+      [ngClass]="{'active': filter == 'toDo'}" 
+      (click)="filter='toDo'">Do zrobienia
+    </button>
+
+    <button mat-button color="warn" 
+      [ngClass]="{'active': filter == 'inProgress'}" 
+      (click)="filter='inProgress'">W toku
+    </button>
+
+    <button mat-button color="primary" 
+      [ngClass]="{'active': filter == 'completed'}" 
+      (click)="filter='completed'">Gotowe
+    </button>
+  </div>
+  <!-- <div *ngIf="atLeastOneCompleted()">
+    <button mat-button (click)="clearCompleted()" disabled>Usuń gotowe</button>
+  </div> -->
+</div>
+
+<!-- <task-item
+*ngFor="let task of completedTasks()" 
+[task]="task"
+(checkedItem)="doneEdit($event)"
+(doubleClickedItem)="editName($event)"
+(blurredItem)="doneEdit($event)"
+(enteredItem)="doneEdit($event)"
+(cancelledItem)="cancelEdit($event)"
+>
+</task-item> -->

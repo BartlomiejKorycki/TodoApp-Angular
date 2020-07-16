@@ -1,0 +1,43 @@
+.priority {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border-radius: 2px;
+    padding-top: 10px;
+    width: 90%;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.status {
+    background-color: antiquewhite;
+    border-radius: 2px;
+    padding-top: 10px;
+    width: 90%;
+    height: 70px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.decription-input {
+    background-color: antiquewhite;
+    border-radius: 2px;
+    padding-top: 10px;
+    width: 90%;
+    margin: auto;
+}
+
+.description {
+    width: 100%;
+}
+
+.term,
+.completed {
+    background-color: antiquewhite;
+    border-radius: 2px;
+    padding-top: 10px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5px;
+}
