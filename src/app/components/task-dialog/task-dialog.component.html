@@ -5,36 +5,41 @@
     {{ data.priority }} -->
 </h2>
 
-<mat-dialog-content class="priority">
-    Priorytet:
-    <mat-radio-group>
-        <mat-radio-button value="low"
-            (click)="changePriority('low')"  
-            [checked]="data.priority == 'low'">niski
-        </mat-radio-button>
-        <mat-radio-button value="medium"
-            (click)="changePriority('medium')"  
-            [checked]="data.priority == 'medium'">średni
-        </mat-radio-button>
-        <mat-radio-button value="heigh"
-            (click)="changePriority('heigh')"  
-            [checked]="data.priority == 'heigh'">wysoki
-        </mat-radio-button>
-    </mat-radio-group>
+<mat-dialog-content >
+    <div class="priority">
+        Priorytet:
+        <mat-radio-group>
+            <mat-radio-button value="low"
+                (click)="changePriority('low')"  
+                [checked]="data.priority == 'low'">niski
+            </mat-radio-button>
+            <mat-radio-button value="medium"
+                (click)="changePriority('medium')"  
+                [checked]="data.priority == 'medium'">średni
+            </mat-radio-button>
+            <mat-radio-button value="heigh"
+                (click)="changePriority('heigh')"  
+                [checked]="data.priority == 'heigh'">wysoki
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="status">
+        <mat-form-field>
+            <mat-label>Status:</mat-label>
+            <mat-select matNativeControl [(ngModel)]="status">
+                <mat-option 
+                    *ngFor="let stat of stats" 
+                    [value]="stat" 
+                    (click)="statusChanger(stat)">
+                    {{ stat }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </mat-dialog-content>
 
-<mat-dialog-content class="status">
-    <mat-form-field>
-        <mat-label>Status:</mat-label>
-        <mat-select matNativeControl [(ngModel)]="status">
-            <mat-option 
-                *ngFor="let stat of stats" 
-                [value]="stat" 
-                (click)="statusChanger(stat)">
-                {{ stat }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+<mat-dialog-content >
+    
 </mat-dialog-content>
 
 <mat-dialog-content class="term">

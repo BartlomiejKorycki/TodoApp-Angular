@@ -4,9 +4,20 @@
 task-list {
     position: relative;
     width:100%;
-    padding: 20px 10%;
+    padding: 20px 4%;
 }
 
 sidebar-menu {
     width: auto;
+}
+
+@media (max-width: 600px) {
+    task-list {
+    margin-left: -75px;
+    }
+
+    sidebar-menu .mat-sidenav-content {
+        padding-left: 50px;
+    }
+    
 }
