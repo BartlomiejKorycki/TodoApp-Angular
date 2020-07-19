@@ -9,6 +9,11 @@
   background-color: antiquewhite;
   border-radius: 5px;
 }
+
+.task-item-label {
+  padding: 0;
+  margin-left: 12px;
+}
     
 .remove-item {
   cursor: pointer;
@@ -32,15 +37,23 @@
     outline: none;
   } */
 }
+
+.task-icons-label .mat-icon {
+  padding-left: 5px;
+  font-size: smaller;
+  color: gray;
+}
+
+.date-description {
+  font-size: smaller;
+  color: gray;
+  margin: 0;
+  padding: 0;
+}
     
 .task-item-left {
   display: flex;
   align-items: center;
-}
-    
-.task-item-label {
-  padding: 10px;
-  margin-left: 12px;
 }
     
 .task-item-edit {
@@ -60,4 +73,4 @@
 .completed {
   text-decoration: line-through;
   color: grey;
-}  
+}

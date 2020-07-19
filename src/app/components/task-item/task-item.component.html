@@ -15,6 +15,16 @@
         (click)="editName(task)" 
         [ngClass]="{ 'completed' : task.completed}"
       >{{ task.name }}
+
+        <div class="task-icons-label">
+          <div class="note-description">
+            <mat-icon md-48 *ngIf="task.description.length > 0">note</mat-icon>
+          </div>
+          <div class="date-description">
+            <mat-icon *ngIf="task.date">event </mat-icon>
+            {{ task.date | date: 'dd/MM/yyyy' }}
+          </div>
+        </div>
       </div>
   
       <ng-template #editingTask>
@@ -28,14 +38,10 @@
         >
       </ng-template>
 
-      <div class="task-date-label">
-        <mat-icon *ngIf="task.date">event</mat-icon> {{ task.date | date: 'dd/MM/yyyy' }}
-      </div>
+
     </div>
 
     <div class="task-item-right">
-      <mat-icon md-48 *ngIf="task.description.length > 0">note</mat-icon>
-
       <button 
         mat-icon-button class="edit-item" 
         (click)="openDialog()">

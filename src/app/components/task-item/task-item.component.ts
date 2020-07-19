@@ -20,8 +20,8 @@ export class TaskItemComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '40%',
-      height: '500px',
+      width: '500px',
+      height: '450px',
       data: {
         id: this.task.id, 
         name: this.task.name, 

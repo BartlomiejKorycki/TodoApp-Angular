@@ -8,6 +8,13 @@
   <input matInput type="text" [(ngModel)]="taskName" (keyup.enter)="addTask()">
 </mat-form-field>
 
+<!-- <div class="all-filter">
+  <button mat-button 
+    [ngClass]="{'active': filter == 'all'}" 
+    (click)="filter='all'">Wszystkie
+  </button>
+</div> -->
+
 <task-item 
   *ngFor="let task of tasksFilter()" 
   [task]="task"
@@ -25,13 +32,8 @@
   <div>{{ remaining() }} zadania pozostały</div>
 </div>
   
-<div class="extra-container">
+<div class="extra-buttons-container">
   <div>
-    <button mat-button 
-      [ngClass]="{'active': filter == 'all'}" 
-      (click)="filter='all'">Wszystkie
-    </button>
-
     <button mat-stroked-button 
       [ngClass]="{'active': filter == 'toDo'}" 
       (click)="filter='toDo'">Do zrobienia
