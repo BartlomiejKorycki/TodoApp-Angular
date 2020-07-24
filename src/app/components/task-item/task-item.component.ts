@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task/task';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'task-item',
@@ -14,9 +15,9 @@ export class TaskItemComponent implements OnInit {
   @Output() checkedItem = new EventEmitter();
   @Output() doubleClickedItem = new EventEmitter();
   @Output() cancelledItem = new EventEmitter();
-  // @Output() deletedItem = new EventEmitter();
 
   constructor(public dialog: MatDialog) {}
+  ngOnInit(): void {}
 
   openDialog(): void {
     let dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -39,9 +40,6 @@ export class TaskItemComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
-
   doneEdit(task: Task): void {
     this.checkedItem.emit(task);
   }
@@ -54,15 +52,27 @@ export class TaskItemComponent implements OnInit {
     this.cancelledItem.emit(task);
   }
 
-  // deleteTask(task: number): void {
-  //   this.deletedItem.emit(task);
-  // }
-
-  ifCompleted(): void {
-    if(this.task.completed == false) {
+  checkboxChanger(): void {
+    if(this.task.inProgress === false && this.task.completed === false) {
+      this.task.status = 'w toku';
+      this.task.inProgress = true;
+    } 
+    else if(this.task.inProgress === true && this.task.completed === false) {
+      this.task.inProgress = false;
       this.task.status = 'gotowe';
-    } else {
+      this.task.completed = true;
+    }
+    else if (this.task.inProgress === false && this.task.completed === true) {
+      this.task.completed = false;
       this.task.status = 'do zrobienia';
+    }
+  }
+
+  getColor(): string {
+    if (this.task.completed) {
+      return 'primary';
+    } else if (!this.task.completed && this.task.inProgress){
+      return 'warn';
     }
   }
 }

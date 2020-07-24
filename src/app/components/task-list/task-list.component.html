@@ -8,12 +8,13 @@
   <input matInput type="text" [(ngModel)]="taskName" (keyup.enter)="addTask()">
 </mat-form-field>
 
-<!-- <div class="all-filter">
+<!--IN DEMO VERSION IS EXCLUDED-->
+<div class="all-filter-button">
   <button mat-button 
     [ngClass]="{'active': filter == 'all'}" 
     (click)="filter='all'">Wszystkie
   </button>
-</div> -->
+</div>
 
 <task-item 
   *ngFor="let task of tasksFilter()" 
@@ -28,7 +29,10 @@
 </task-item>
 
 <div class="extra-container">
-  <div><label><mat-checkbox type="checkbox" (change)="checkAllTasks()"> Zaznacz wszystkie</mat-checkbox></label></div>
+  <!--IN DEMO VERSION IS EXCLUDED-->
+  <!-- <div>
+    <label><mat-checkbox type="checkbox" (change)="checkAllTasks()"> Zaznacz wszystkie</mat-checkbox></label>
+  </div> -->
   <div>{{ remaining() }} zadania pozostały</div>
 </div>
   
@@ -49,11 +53,14 @@
       (click)="filter='completed'">Gotowe
     </button>
   </div>
+
+  <!--IN DEMO VERSION IS EXCLUDED-->
   <!-- <div *ngIf="atLeastOneCompleted()">
     <button mat-button (click)="clearCompleted()" disabled>Usuń gotowe</button>
   </div> -->
 </div>
 
+<!--IN DEMO VERSION IS EXCLUDED-->
 <!-- <task-item
 *ngFor="let task of completedTasks()" 
 [task]="task"

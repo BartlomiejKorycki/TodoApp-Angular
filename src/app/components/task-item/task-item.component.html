@@ -2,9 +2,11 @@
     <div class="task-item-left"> 
       <mat-checkbox
         type="checkbox"
-        [(ngModel)]="task.completed"
+        [indeterminate]="task.inProgress"
+        [checked]="task.completed"
+        [color]="getColor()"
         (change)="doneEdit(task)" 
-        (click)="ifCompleted()"
+        (click)="checkboxChanger()"
         autofocus
         >
       </mat-checkbox>
@@ -38,7 +40,6 @@
         >
       </ng-template>
 
-
     </div>
 
     <div class="task-item-right">
@@ -48,6 +49,7 @@
         <mat-icon >more_vert</mat-icon>
       </button>
 
+      <!--IN DEMO VERSION IS EXCLUDED-->
       <!-- <button 
         mat-icon-button  
         class="remove-item" 

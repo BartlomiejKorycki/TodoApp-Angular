@@ -94,9 +94,9 @@ export class TaskListComponent implements OnInit {
     } else if (this.filter === 'toDo') {
       return this.tasks.filter(task => task.status == 'do zrobienia');
     } else if (this.filter === 'inProgress') {
-      return this.tasks.filter(task => task.status == 'w toku');
+      return this.tasks.filter(task => task.inProgress === true);
     } else if (this.filter === 'completed') {
-      return this.tasks.filter(task => task.completed);
+      return this.tasks.filter(task => task.completed === true);
     }
     return this.tasks;
   }

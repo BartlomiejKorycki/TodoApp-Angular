@@ -2,11 +2,12 @@ export class Task {
     id: number;
     name: string;
     description: string;
-    status: string = 'do zrobienia'; //domyślnie/----/checkbox
+    status = 'do zrobienia'; //domyślnie/----/checkbox
     date: Date; // domyślnie brak
-    priority: string = 'medium'; //domyślnie/----/radioButton
-    completed: boolean = false;
-    editing: boolean = false;
+    priority = 'medium'; //domyślnie/----/radioButton
+    completed = false;
+    inProgress = false;
+    editing = false;
 
     constructor(id: number, name: string, description: string) {
         this.id = id;

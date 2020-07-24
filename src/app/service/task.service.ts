@@ -12,8 +12,8 @@ export class TaskService {
     new Task(3, 'Powtórz słówka','')
   ];
 
-  taskName: string = '';
-  beforeEditCache: string = '';
-  taskId: number = 4;
-  filter: string = 'todo';
+  taskName = '';
+  beforeEditCache = '';
+  taskId = 4;
+  filter = 'toDo';
 }

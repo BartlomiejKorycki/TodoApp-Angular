@@ -37,7 +37,14 @@ export class TaskDialogComponent implements OnInit {
         task.status = val;
         if (val == 'gotowe') {
           task.completed = true;
-        } else {
+          task.inProgress = false;
+        }
+        else if (val == 'w toku'){
+          task.inProgress = true;
+          task.completed = false;
+        }
+        else if (val == 'do zrobienia'){
+          task.inProgress = false;
           task.completed = false;
         }
       }
