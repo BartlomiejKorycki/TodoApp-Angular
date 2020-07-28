@@ -7,11 +7,6 @@ html, body {
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-image: url("green-leaves-better.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-repeat: repeat-y;
 }
 
 .mat-dialog-container {
