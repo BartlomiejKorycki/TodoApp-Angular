@@ -17,8 +17,17 @@
     </button>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#"><mat-icon>star</mat-icon><br> Ważne</a>
-      <a mat-list-item href="#"><mat-icon>event</mat-icon><br> Zaplanowane</a>
+      <a 
+        mat-list-item
+        (click)="filter='important'">
+          <mat-icon>star</mat-icon>
+          <br> Ważne
+      </a>
+      <a 
+        mat-list-item >
+          <mat-icon>event</mat-icon>
+          <br> Zaplanowane
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   

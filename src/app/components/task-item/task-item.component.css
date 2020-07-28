@@ -10,6 +10,17 @@
   border-radius: 5px;
 }
 
+mat-checkbox {
+  position: flex;
+  width: 25px;
+  height: 25px;
+}
+
+.mat-checkbox-inner-container {
+  position: relative;
+  z-index: -1;
+}
+
 .task-item-label {
   padding: 0;
   margin-left: 12px;
@@ -73,4 +84,12 @@
 .completed {
   text-decoration: line-through;
   color: grey;
+}
+
+@media (max-width: 600px) {
+  mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+    height: 20px;
+    width: 20px;
+  }
+  
 }

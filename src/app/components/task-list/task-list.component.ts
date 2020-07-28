@@ -97,6 +97,8 @@ export class TaskListComponent implements OnInit {
       return this.tasks.filter(task => task.inProgress === true);
     } else if (this.filter === 'completed') {
       return this.tasks.filter(task => task.completed === true);
+    } else if (this.filter === 'important') {
+      return this.tasks.filter(task => task.priority == 'heigh')
     }
     return this.tasks;
   }

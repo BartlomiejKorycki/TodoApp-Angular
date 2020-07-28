@@ -37,11 +37,24 @@
   font-size: 25px;
   
 }
-::ng-deep .mat-form-field-outline.ng-tns-c82-2 {
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   margin: 0;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.45);
 }
+/*DESKTOP THEME*/
+/* ::ng-deep .mat-form-field-outline.ng-tns-c82-2 {
+  margin: 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.45);
+} */
+/* MOBILE THEME */
+/* ::ng-deep .mat-form-field-outline.ng-tns-c54-2 {
+  margin: 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.45);
+} */
    
 .extra-container {
   display: flex;
