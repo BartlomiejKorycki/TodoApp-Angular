@@ -1,4 +1,20 @@
 <mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar>
+      <button 
+        mat-icon-button
+        class="outside-btn"
+        type="button"
+        aria-label="Toggle sidenav"
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)">
+        <mat-icon class="button-icon"aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+
   <mat-sidenav 
       #drawer 
       class="sidenav" 
@@ -6,7 +22,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-      <button 
+    <button
       class="inside-btn"
       type="button"
       aria-label="Toggle sidenav"
@@ -17,9 +33,10 @@
     </button>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
+      <p>{{ date | date: 'dd.MM.yyyy' }}</p>
       <a 
-        mat-list-item
-        (click)="filter='important'">
+        mat-list-item 
+        (click)="filterImportant()">
           <mat-icon>star</mat-icon>
           <br> Ważne
       </a>
@@ -30,19 +47,5 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  
-  <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar>
-      <button 
-        class="outside-btn"
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="(isHandset$ | async)">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
+
 </mat-sidenav-container>

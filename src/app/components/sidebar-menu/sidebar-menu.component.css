@@ -2,14 +2,9 @@
   background-color: transparent;
 }
 
-.sidenav-content .mat-toolbar{
+.sidenav-content mat-toolbar{
   background-color: transparent;
   color: white;
-  /* border: 2px solid whitesmoke;
-  border-radius: 5px; */
-}
-.inside-btn {
-  padding: 10px 25px;
 }
 
 .sidenav {
@@ -18,16 +13,35 @@
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
 
-.mat-drawer-content {
-  display: inline;
+.sidenav mat-toolbar {
+  margin: auto;
+  height: 50px;
+  justify-content: center;
+  background: inherit;
+  font-size: 20px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
+.inside-btn {
+  position: absolute;
+  margin: 8px 0px 0px 16px;
+}
+
+.mat-nav-list p {
+  margin-top: 0px;
+  text-align: center;
+  font-size: smaller;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.082);
+}
+
+.mat-nav-list {
+  padding: 0px;
+}
+/* .mat-drawer-content {
+  display: inline;
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
-}
+} */

@@ -10,8 +10,7 @@ import { TaskService } from 'src/app/service/task.service';
   styleUrls: ['./sidebar-menu.component.css']
 })
 export class SidebarMenuComponent {
-
-  filter = this.service.filter;
+  date: Date = new Date();
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -21,4 +20,8 @@ export class SidebarMenuComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private service: TaskService) {}
 
+  filterImportant(): void {
+    this.service.important = true;
+    console.log(this.service.important)
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Task } from '../models/task/task';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TaskService } from 'src/app/service/task.service';
@@ -28,10 +28,12 @@ export class TaskListComponent implements OnInit {
   taskId: number ;
   beforeEditCache: string ;
   filter: string ;
+  important: boolean;
 
   constructor(private service: TaskService) {}
 
   ngOnInit(): void {
+    this.important = this.service.important;
     this.filter = this.service.filter;
     this.beforeEditCache = this.service.beforeEditCache;
     this.taskId = this.service.taskId;

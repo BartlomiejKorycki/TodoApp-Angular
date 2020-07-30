@@ -15,5 +15,6 @@ export class TaskService {
   taskName = '';
   beforeEditCache = '';
   taskId = 4;
-  filter = 'toDo';
+  filter = 'all';
+  important = false;
 }

@@ -1,6 +1,15 @@
 <div class="task-item">
     <div class="task-item-left"> 
-      <mat-checkbox
+      <div class="checkbox">
+        <input type="checkbox" class="checkbox-input" 
+        [indeterminate]="task.inProgress"
+        [checked]="task.completed"
+        (change)="doneEdit(task)" 
+        (click)="checkboxChanger()"
+        autofocus>
+      </div>
+
+      <!-- <mat-checkbox
         type="checkbox"
         [indeterminate]="task.inProgress"
         [checked]="task.completed"
@@ -9,7 +18,7 @@
         (click)="checkboxChanger()"
         autofocus
         >
-      </mat-checkbox>
+      </mat-checkbox> -->
 
       <div 
         class="task-item-label" 
@@ -19,12 +28,13 @@
       >{{ task.name }}
 
         <div class="task-icons-label">
-          <div class="note-description">
+          <div class="note-description" >
             <mat-icon md-48 *ngIf="task.description.length > 0">note</mat-icon>
+            <p *ngIf="task.description.length > 0">Notatka</p>
           </div>
           <div class="date-description">
             <mat-icon *ngIf="task.date">event </mat-icon>
-            {{ task.date | date: 'dd/MM/yyyy' }}
+            <p>{{ task.date | date: 'dd.MM.yyyy' }}</p>
           </div>
         </div>
       </div>
