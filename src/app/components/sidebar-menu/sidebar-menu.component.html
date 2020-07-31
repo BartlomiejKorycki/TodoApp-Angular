@@ -12,7 +12,6 @@
         <mat-icon class="button-icon"aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
-    <!-- Add Content Here -->
   </mat-sidenav-content>
 
   <mat-sidenav 
@@ -31,9 +30,14 @@
       *ngIf="(isHandset$ | async)">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
+    <p class="menu-date">{{ date | date: 'dd - MM - yyyy' }}</p>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <p>{{ date | date: 'dd.MM.yyyy' }}</p>
+      <div class="user-container">
+        <mat-icon class="user-icon" aria-label="Side nav toggle icon">account_circle</mat-icon>
+        <p class="user-name">User One</p>
+        <p class="user-mail">user-one@mail.com</p>
+      </div>
       <a 
         mat-list-item 
         (click)="filterImportant()">
